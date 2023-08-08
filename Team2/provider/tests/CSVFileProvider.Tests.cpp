@@ -11,10 +11,9 @@ namespace csv
 	
 	TEST(CSVFileProviderTests, ReadCSV_ValidFile_CorrectLine)
 	{
-
-		auto testpath = std::string{"./testfile.csv"};
+		auto testpath = std::string{"testfile.csv"};
 		auto actual = CSVFileProvider::ReadCSVFile(testpath);
-		const std::vector<std::string> expected = {"Name;Age;City"   
+		const std::vector<std::string> expected = {"Name;Age;City",   
 												   "Peter;42;New York"};
 		EXPECT_EQ(actual, expected);				
 	}

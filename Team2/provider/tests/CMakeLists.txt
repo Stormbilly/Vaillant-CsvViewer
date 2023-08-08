@@ -11,6 +11,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
         )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/UnitTests)
+file(COPY testfile.csv DESTINATION ${CMAKE_BINARY_DIR}/UnitTests)
 
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME})
