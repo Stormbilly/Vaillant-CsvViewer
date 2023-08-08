@@ -1,19 +1,35 @@
 #include "CSVFileProvider.h"
-#include <iostream>
+#include <ifstream>
 #include <vector> 
 
 
 namespace csv
 {
 
-    auto outsring = std::vector
+    
     std::vector<std::string> CSVFileProvider::ReadCSVFile(const std::string& file_path)
     {
-        auto csv_string = std::string {};
-        std::ifstream istrm(file_path, ios_base::in);
-        
+        auto csv_file = std::ifstream{};
+        auto csv_lines = std::vector<std::string> {};
 
-        return std::vector<std::string>();
+
+        csv_file.open(file_path);
+        if (csv_file.is_open())
+        {
+            //  while (!csv_file.eof())
+            // {
+
+            //     std::getline(csv_file, str)
+            //     text += str + '\n';
+            // }
+
+            for (std::string line; std::getline(csv_file, line); ){
+                csv_lines.push_back(line);
+            }              
+        }
+        csv_file.close();   
+               
+        return csv_lines;
     }
 
 } // namespace csv
