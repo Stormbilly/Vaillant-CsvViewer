@@ -8,7 +8,7 @@ namespace csv
 	{
 		using namespace testing;
 
-		TEST(PageTests, Page_Constructor_EmptyCsv)
+		TEST(PageTests, Page_Generator_EmptyCsv)
 		{
 			std::vector <std::vector <std::string> > csv;
 
@@ -20,7 +20,7 @@ namespace csv
 			EXPECT_THAT(dummy_page.numberOfRows, 42);
 		}
 
-		TEST(PageTests, Page_Constructor_InvalidNumberOfRows)
+		TEST(PageTests, Page_Generator_InvalidNumberOfRows)
 		{
 			std::vector <std::vector <std::string> > csv = {{"header1", "header2"}};
 
@@ -32,7 +32,7 @@ namespace csv
 			EXPECT_THAT(dummy_page.numberOfRows, 42);
 		}
 
-		TEST(PageTests, Page_Constructor_ValidNumberOfRows)
+		TEST(PageTests, Page_Generator_ValidNumberOfRows)
 		{
 			std::vector <std::vector <std::string> > csv = {{"header1", "header2"}, {"value1", "value2"}};
 
