@@ -19,6 +19,12 @@ set_target_properties(${FILE_LOADER_TEST} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${
 target_link_libraries(${FILE_LOADER_TEST} PRIVATE gmock_main domain)
 gtest_discover_tests(${FILE_LOADER_TEST})
 
+set(FILE_CMD_LINE_TEST "CommandLineParserTests")
+add_executable(${FILE_CMD_LINE_TEST} CommandLineArguments.Tests.cpp)
+set_target_properties(${FILE_CMD_LINE_TEST} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/UnitTests)
+target_link_libraries(${FILE_CMD_LINE_TEST} PRIVATE gmock_main domain)
+gtest_discover_tests(${FILE_CMD_LINE_TEST})
+
 file(COPY testInput.csv DESTINATION ${CMAKE_BINARY_DIR}/UnitTests)
 
 include(GoogleTest)
