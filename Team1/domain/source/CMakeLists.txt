@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project("domain" CXX)
 
-add_library(${PROJECT_NAME} STATIC Domain.cpp)
+add_library(${PROJECT_NAME} STATIC Domain.cpp FileLoader.cpp)
 target_link_libraries(${PROJECT_NAME} Contracts)
 target_include_directories(${PROJECT_NAME} PUBLIC .)
 
