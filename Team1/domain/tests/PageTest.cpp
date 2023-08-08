@@ -12,7 +12,7 @@ namespace csv
 		{
 			std::vector <std::vector <std::string> > csv;
 
-			contracts::Page dummy_page = pageGenerator(csv, 42);
+			csv::contracts::Page dummy_page = pageGenerator(csv, 42);
 
 			EXPECT_THAT(dummy_page.header.size(), 0);
 			EXPECT_THAT(dummy_page.values.size(), 0);
@@ -24,7 +24,7 @@ namespace csv
 		{
 			std::vector <std::vector <std::string> > csv = {{"header1", "header2"}};
 
-			contracts::Page dummy_page = pageGenerator(csv, 42);
+			csv::contracts::Page dummy_page = pageGenerator(csv, 42);
 
 			EXPECT_THAT(dummy_page.header.size(), 0);
 			EXPECT_THAT(dummy_page.values.size(), 0);
@@ -36,7 +36,7 @@ namespace csv
 		{
 			std::vector <std::vector <std::string> > csv = {{"header1", "header2"}, {"value1", "value2"}};
 
-			contracts::Page dummy_page = pageGenerator(csv, 24);
+			csv::contracts::Page dummy_page = pageGenerator(csv, 24);
 
 			EXPECT_THAT(dummy_page.header.size(), 2);
 			EXPECT_THAT(dummy_page.values.size(), 1);

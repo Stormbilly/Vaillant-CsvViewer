@@ -7,9 +7,9 @@ namespace csv
 {
     namespace domain
     {
-        static contracts::Page pageGenerator(std::vector <std::vector <std::string> > csv, unsigned int numberOfRows)
+        csv::contracts::Page pageGenerator(std::vector <std::vector <std::string> > csv, unsigned int numberOfRows)
         {
-            contracts::Page ret;
+            csv::contracts::Page ret;
             ret.firstLine = 0;
             ret.numberOfRows = numberOfRows;
 
