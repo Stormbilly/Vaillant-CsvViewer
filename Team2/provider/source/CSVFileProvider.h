@@ -6,7 +6,7 @@ namespace csv
 {
 	struct CSVFileProvider
 	{
-		std::vector<std::string> ReadCSVFile(const std::string& file_path);
+		static std::vector<std::string> ReadCSVFile(const std::string& file_path);
 	};
 	
 } // namespace csv
