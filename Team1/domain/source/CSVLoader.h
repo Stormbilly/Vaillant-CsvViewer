@@ -1,4 +1,4 @@
 #include <string>
 #include <vector>
 
-std::vector <std::vector <std::string> > loadCSVFromString (const std::string& entireFile);
+std::vector <std::vector <std::string> > parseCSV (const std::string& entireFile);

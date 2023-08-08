@@ -19,7 +19,7 @@ static std::vector<std::string> splitString(const std::string& str , const char 
     return tokens;
 }
 
-std::vector <std::vector <std::string> > loadCSVFromString (const std::string& entireFile)
+std::vector <std::vector <std::string> > parseCSV (const std::string& entireFile)
 {
     std::vector <std::vector <std::string> > result;
 

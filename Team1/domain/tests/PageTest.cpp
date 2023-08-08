@@ -1,5 +1,4 @@
 #include <gmock/gmock.h>
-#include "Domain.h"
 #include "Page.h"
 
 namespace csv
@@ -7,11 +6,6 @@ namespace csv
 	namespace domain
 	{
 		using namespace testing;
-
-		TEST(DomainTests, hey)
-		{
-			Domain domain;
-		}
 
 		TEST(DomainTests, Page_Constructor_EmptyCsv)
 		{

@@ -7,15 +7,13 @@ namespace csv
 	{
 		using namespace testing;
 
-		TEST(FileLoaderTestsGood, hey)
+		TEST(FileLoaderTest, goodCase)
 		{
-			// Assert
-			std::string expected = "one; two; three-\nfour\n";
-
 			//Act
 			std::string result = loadFile ("testInput.csv");
 
 			// Assert
+			std::string expected = "one; two; three-\nfour\n";
 			EXPECT_EQ (expected, result);
 		}
 	}

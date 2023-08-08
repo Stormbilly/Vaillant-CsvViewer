@@ -25,28 +25,26 @@ namespace csv
 			}
 		}
 
-		TEST(CSVLoader, empty)
+		TEST(CSVLoader, emptyString)
 		{
-			// Arrange
-			std::vector <std::vector <std::string> > expected;
-
 			// Act
-			std::vector <std::vector <std::string> > result = loadCSVFromString ("");
+			std::vector <std::vector <std::string> > result = parseCSV ("");
 
 			// Assert
+			std::vector <std::vector <std::string> > expected;
 			EXPECT_EQ (expected.size(), result.size());
+			EXPECT_EQ (expected, result);
 		}
 
-		TEST(CSVLoader, Simple)
+		TEST(CSVLoader, Simple2and2Matrix)
 		{
-			// Arrange
-			std::vector <std::vector <std::string> > expected = {{"one", "two"}, {"three", "four"}};
-
 			// Act
-			std::vector <std::vector <std::string> > result = loadCSVFromString ("one;two\nthree;four");
+			std::vector <std::vector <std::string> > result = parseCSV ("one;two\nthree;four");
 
 			// Assert
+			std::vector <std::vector <std::string> > expected = {{"one", "two"}, {"three", "four"}};
 			compare2DVectors (expected, result);
+			EXPECT_EQ (expected, result);
 		}
 	}
 }
