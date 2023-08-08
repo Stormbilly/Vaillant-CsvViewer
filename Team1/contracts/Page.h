@@ -20,7 +20,7 @@ namespace csv
 				this->firstLine = 0;
 				this->numberOfRows = numberOfRows;
 
-				if(csv.size() > 2)
+				if(csv.size() >= 2)
 				{
 					this->header = csv[0];
 					this->values = csv;
