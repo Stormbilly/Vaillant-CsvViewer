@@ -3,7 +3,7 @@
 namespace csv
 {
 
-    contracts::DisplayedData CsvDataFormatter::getDisplayedContent(contracts::DataTable inputDataTable)
+    contracts::DisplayedData CsvDataFormatter::getDisplayedContent(contracts::DataTable inputDataTable, int pageSize)
     {
         return {};
     }

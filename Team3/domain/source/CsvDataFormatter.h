@@ -11,7 +11,7 @@ namespace csv
     {
         public:
 
-             contracts::DisplayedData getDisplayedContent(contracts::DataTable inputDataTable);
+             static contracts::DisplayedData getDisplayedContent(contracts::DataTable inputDataTable, int pageSize);
 
     };
 }

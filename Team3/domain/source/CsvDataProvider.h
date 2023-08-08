@@ -8,6 +8,6 @@ namespace csv
     {
         public:
 
-            contracts::CsvDataStream getFile(std::string csvPath);
+            static contracts::CsvDataStream getFile(std::string csvPath);
     };
 }

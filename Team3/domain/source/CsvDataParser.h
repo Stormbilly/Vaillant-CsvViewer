@@ -11,7 +11,7 @@ namespace csv
     {
         public:
 
-             contracts::DataTable parseFile(contracts::CsvDataStream inputDataStream);
+             static contracts::DataTable parseFile(contracts::CsvDataStream inputDataStream);
 
     };
 }

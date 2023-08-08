@@ -9,7 +9,7 @@ namespace csv
     {
         public:
 
-             std::tuple <std::string, int> parseCmdLine(std::vector <std::string> cmdLineIput);
+             static std::tuple <std::string, int> parseCmdLine(std::vector <std::string> cmdLineIput);
 
     };
 }

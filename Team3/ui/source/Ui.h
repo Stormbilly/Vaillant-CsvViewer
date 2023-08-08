@@ -1,9 +1,12 @@
 #pragma once
-
+#include "DisplayedData.h"
 namespace csv
 {
-	struct Ui
-	{
-	};
-	
+	class Ui
+    {
+        public:
+
+             static void show(contracts::DisplayedData dataToDisplay);
+
+    };
 } // namespace csv
