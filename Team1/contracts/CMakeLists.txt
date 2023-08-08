@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project("contracts" CXX)
+project("Contracts" CXX)
 
 add_library(${PROJECT_NAME} INTERFACE Page.h)
 

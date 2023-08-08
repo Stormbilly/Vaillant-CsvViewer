@@ -3,10 +3,13 @@
 
 namespace csv
 {
-	using namespace testing;
-
-	TEST(DomainTests, hey)
+	namespace domain
 	{
-		Domain domain;
+		using namespace testing;
+
+		TEST(DomainTests, hey)
+		{
+			Domain domain;
+		}
 	}
 }

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project("ui.Tests" CXX)
 
 add_executable(${PROJECT_NAME} Ui.Tests.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE gmock_main ui)
+target_link_libraries(${PROJECT_NAME} PRIVATE gmock_main Ui)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/UnitTests)
 
