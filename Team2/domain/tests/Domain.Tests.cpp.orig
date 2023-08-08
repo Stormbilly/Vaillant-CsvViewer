@@ -1,0 +1,24 @@
+#include <gmock/gmock.h>
+<<<<<<< HEAD
+#include "Interactor.h"
+=======
+//#include "Domain.h"
+>>>>>>> 14d4a82 (added test for csv file provider)
+
+//namespace csv
+//{
+//	using namespace testing;
+
+<<<<<<< HEAD
+/* 	TEST(DomainTests, hey)
+	{
+		Domain domain;
+	} */
+}
+=======
+//	TEST(DomainTests, hey)
+//	{
+//		Domain domain;
+//	}
+//}
+>>>>>>> 14d4a82 (added test for csv file provider)
