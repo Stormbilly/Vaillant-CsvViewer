@@ -2,8 +2,9 @@
 
 namespace csv
 {
-	struct Domain
+	namespace domain
 	{
-	};
+		
+	}
 	
 } // namespace csv
