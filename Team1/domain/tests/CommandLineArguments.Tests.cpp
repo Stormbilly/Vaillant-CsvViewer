@@ -15,9 +15,9 @@ namespace csv
             argv.push_back((char*)"40");
             argv.push_back(nullptr);
             */
-            const char* args[] = {(char*)"CSV.csv", (char*)"2", nullptr};
+            const char* args[] = {(char*)"./app", (char*)"CSV.csv", (char*)"2", nullptr};
 	        
-            Arguments arguments = parseArgs(args, 2);
+            Arguments arguments = parseArgs(args, 3);
 
             EXPECT_THAT(arguments.noOfRows, 2);
             EXPECT_THAT(arguments.filePath, "CSV.csv");

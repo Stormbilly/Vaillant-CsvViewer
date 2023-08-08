@@ -10,8 +10,8 @@ namespace csv
     TEST(InteractorTests, Start)
     {
         // Act
-        const char* args[] = {"testInput.csv", "40", nullptr};
-        const auto page = Interactor::Start(args, 2);
+        const char* args[] = {"app", "testInput.csv", "40", nullptr};
+        const auto page = Interactor::Start(args, 3);
 
         EXPECT_EQ (page.numberOfRows, 40);
         EXPECT_EQ (page.firstLine, 0);

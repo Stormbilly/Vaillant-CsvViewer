@@ -9,8 +9,8 @@ namespace csv
         {
             Arguments arguments;
             std::size_t pos;
-            arguments.filePath = argv[0];
-            arguments.noOfRows = std::stoi(argv[1], &pos);
+            arguments.filePath = argv[1];
+            arguments.noOfRows = std::stoi(argv[2], &pos);
 
             return arguments;
         }

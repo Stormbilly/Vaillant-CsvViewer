@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <algorithm>
 #include "Ui.h"
 
 namespace csv
@@ -13,8 +14,9 @@ namespace csv
         std::cout  << BuildOutputLine(page.header).data();
         std::cout << "--------------------------------------\n";
         
+        unsigned int limit = std::min ((unsigned int)(page.firstLine + page.numberOfRows), (unsigned int)page.values.size());
         
-        for (int i = page.firstLine; i < page.firstLine + page.numberOfRows; i++) {
+        for (int i = page.firstLine; i < limit ; i++) {
 //        for (auto itVec = page.values[page.firstLine]; itVec != page.values[page.firstLine + page.numberOfRows]; itVec++) { 
                 std::cout << BuildOutputLine(page.values[i]).data();
         }
@@ -27,8 +29,8 @@ namespace csv
         
         std::string output;
         
-        for (auto itVec = strings.begin(); itVec != strings.end(); itVec++) {
-            output.append(*itVec +  "|");
+        for (const auto& it : strings) {
+            output.append(it +  "|");
         }; 
         output.append("\n");
         return output;
