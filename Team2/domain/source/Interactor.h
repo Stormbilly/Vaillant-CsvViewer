@@ -2,7 +2,7 @@
 
 namespace csv
 {
-	struct Domain
+	struct Interactor
 	{
 	};
 	
