@@ -1,11 +1,18 @@
 cmake_minimum_required(VERSION 3.20)
 project("domain.Tests" CXX)
 
-add_executable(${PROJECT_NAME} FileLoaderTests.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE gmock_main domain)
+set(CSV_LOADER_TEST "CSVLoaderTest")
+add_executable(${CSV_LOADER_TEST} CSVLoaderTests.cpp)
+set_target_properties(${CSV_LOADER_TEST} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/UnitTests)
+target_link_libraries(${CSV_LOADER_TEST} PRIVATE gmock_main domain)
+gtest_discover_tests(${CSV_LOADER_TEST})
 
-set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/UnitTests)
+set(FILE_LOADER_TEST "FileLoaderTest")
+add_executable(${FILE_LOADER_TEST} FileLoaderTests.cpp)
+set_target_properties(${FILE_LOADER_TEST} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/UnitTests)
+target_link_libraries(${FILE_LOADER_TEST} PRIVATE gmock_main domain)
+gtest_discover_tests(${FILE_LOADER_TEST})
+
 file(COPY testInput.csv DESTINATION ${CMAKE_BINARY_DIR}/UnitTests)
 
 include(GoogleTest)
-gtest_discover_tests(${PROJECT_NAME})
