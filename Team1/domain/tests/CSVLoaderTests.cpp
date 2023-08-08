@@ -7,30 +7,22 @@ namespace csv
 	{
 		using namespace testing;
 
-		bool compare2DVectors (std::vector <std::vector <std::string> >& A, std::vector <std::vector <std::string> >& B)
+		void compare2DVectors (std::vector <std::vector <std::string> >& A, std::vector <std::vector <std::string> >& B)
 		{
 			if (A.size() != B.size())
 			{
-				return false;
+				ASSERT_EQ (A.size(), B.size());
 			}
 
 			for (int i = 0; i < A.size(); ++i)
 			{
-				if (A [i].size() != B [i].size())
-				{
-					return false;
-				}
+				ASSERT_EQ (A [i].size(), B [i].size());
 
 				for (int j = 0; j < A[i].size(); ++j)
 				{
-					if (A[i][j] != B[i][j])
-					{
-						return false;
-					}
+					ASSERT_EQ (A[i][j],B[i][j]);
 				}
 			}
-
-			return true;
 		}
 
 		TEST(CSVLoader, empty)
@@ -51,10 +43,10 @@ namespace csv
 			std::vector <std::vector <std::string> > expected = {{"one", "two"}, {"three", "four"}};
 
 			// Act
-			std::vector <std::vector <std::string> > result = loadCSVFromString ("one:two\nthree:four");
+			std::vector <std::vector <std::string> > result = loadCSVFromString ("one;two\nthree;four");
 
 			// Assert
-			EXPECT_EQ (expected.size(), result.size());
+			compare2DVectors (expected, result);
 		}
 	}
 }
