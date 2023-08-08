@@ -1,4 +1,5 @@
 #include <gmock/gmock.h>
+#include "Domain.h"
 #include "Page.h"
 
 namespace csv
@@ -7,11 +8,11 @@ namespace csv
 	{
 		using namespace testing;
 
-		TEST(DomainTests, Page_Constructor_EmptyCsv)
+		TEST(PageTests, Page_Constructor_EmptyCsv)
 		{
 			std::vector <std::vector <std::string> > csv;
 
-			contracts::Page dummy_page(csv, 42);
+			contracts::Page dummy_page = pageGenerator(csv, 42);
 
 			EXPECT_THAT(dummy_page.header.size(), 0);
 			EXPECT_THAT(dummy_page.values.size(), 0);
@@ -19,11 +20,11 @@ namespace csv
 			EXPECT_THAT(dummy_page.numberOfRows, 42);
 		}
 
-		TEST(DomainTests, Page_Constructor_InvalidNumberOfRows)
+		TEST(PageTests, Page_Constructor_InvalidNumberOfRows)
 		{
 			std::vector <std::vector <std::string> > csv = {{"header1", "header2"}};
 
-			contracts::Page dummy_page(csv, 42);
+			contracts::Page dummy_page = pageGenerator(csv, 42);
 
 			EXPECT_THAT(dummy_page.header.size(), 0);
 			EXPECT_THAT(dummy_page.values.size(), 0);
@@ -31,11 +32,11 @@ namespace csv
 			EXPECT_THAT(dummy_page.numberOfRows, 42);
 		}
 
-		TEST(DomainTests, Page_Constructor_ValidNumberOfRows)
+		TEST(PageTests, Page_Constructor_ValidNumberOfRows)
 		{
 			std::vector <std::vector <std::string> > csv = {{"header1", "header2"}, {"value1", "value2"}};
 
-			contracts::Page dummy_page(csv, 24);
+			contracts::Page dummy_page = pageGenerator(csv, 24);
 
 			EXPECT_THAT(dummy_page.header.size(), 2);
 			EXPECT_THAT(dummy_page.values.size(), 1);
