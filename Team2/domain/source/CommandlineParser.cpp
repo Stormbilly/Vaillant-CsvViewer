@@ -1,5 +1,5 @@
 #include "CommandlineParser.h"
-
+#include <string>
 namespace csv
 {
     std::tuple<std::string, int> CommandlineParser::ParseCommandline(char **argv, int argc)
@@ -14,7 +14,15 @@ namespace csv
         }
         else if( argc >= 3)
         {
-            return std::tuple<std::string, int>(std::string(argv[1]), atoi(argv[2]));
+            try
+            {
+               int page_size = std::stoi(argv[2]);
+               return std::tuple<std::string, int>(std::string(argv[1]), page_size);
+            }
+            catch(const std::exception& e)
+            {
+                return std::tuple<std::string, int>(std::string(argv[1]), 3);
+            }
         }
         else
         {
