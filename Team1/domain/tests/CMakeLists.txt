@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
 project("domain.Tests" CXX)
 
+set(PAGE_TEST "PageTest")
+add_executable(${PAGE_TEST} PageTest.cpp)
+set_target_properties(${PAGE_TEST} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/UnitTests)
+target_link_libraries(${PAGE_TEST} PRIVATE gmock_main domain)
+gtest_discover_tests(${PAGE_TEST})
+
 set(CSV_LOADER_TEST "CSVLoaderTest")
 add_executable(${CSV_LOADER_TEST} CSVLoaderTests.cpp)
 set_target_properties(${CSV_LOADER_TEST} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/UnitTests)
