@@ -5,4 +5,4 @@ struct Arguments {
     unsigned int noOfRows;
 };
 
-Arguments parseArgs (const char** argv, int argc); )
+Arguments parseArgs (const char** argv, int argc);
