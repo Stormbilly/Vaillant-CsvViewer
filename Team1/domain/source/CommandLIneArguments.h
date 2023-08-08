@@ -9,6 +9,6 @@ namespace csv
             unsigned int noOfRows;
         };
         
-        Arguments parseArgs (char** argv, int argc);
+        Arguments parseArgs (const char** argv, int argc);
     };
 };

@@ -15,7 +15,7 @@ namespace csv
             argv.push_back((char*)"40");
             argv.push_back(nullptr);
             */
-            char* args[] = {(char*)"CSV.csv", (char*)"2", nullptr};
+            const char* args[] = {(char*)"CSV.csv", (char*)"2", nullptr};
 	        
             Arguments arguments = parseArgs(args, 2);
 

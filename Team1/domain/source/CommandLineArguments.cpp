@@ -5,7 +5,7 @@ namespace csv
 	namespace domain
 	{
 
-        Arguments parseArgs (char** argv, int argc)
+        Arguments parseArgs (const char** argv, const int argc)
         {
             Arguments arguments;
             std::size_t pos;
