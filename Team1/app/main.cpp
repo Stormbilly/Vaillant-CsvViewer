@@ -1,6 +1,6 @@
-﻿#include "Interactor.h"
+﻿#include <iostream>
+#include "Interactor.h"
 #include "Ui.h"
-#include <iostream>
 
 using namespace csv;
 
@@ -10,9 +10,10 @@ int main(int argc, const char** argv)
     bool errorFlag = false;
     auto page = Interactor::Start(argv, argc);
 
+    UI ui;
     while(true)
     {
-        ShowPage(page);
+        ui.ShowPage(page);
 
         if(errorFlag)
         {

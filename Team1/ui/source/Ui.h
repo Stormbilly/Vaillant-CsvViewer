@@ -4,10 +4,13 @@
 
 namespace csv
 {
-	struct Ui
+	struct UI
 	{
-	};
 
-	void ShowPage(const contracts::Page& page);
-	
+		std::vector<uint16_t> ComputeLength(const contracts::Page& page);
+	    
+		std::string BuildOutputLine(const std::vector<std::string>& strings, std::vector<uint16_t> length);
+
+		void ShowPage(const contracts::Page& page);
+	};
 } // namespace csv
