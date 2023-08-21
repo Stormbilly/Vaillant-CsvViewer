@@ -101,4 +101,19 @@ namespace csv
         // Assert
         EXPECT_EQ (result.firstLine, 10);
     }
+
+    TEST(InteractorTests, FirstPage)
+    {
+        // Arrange
+        contracts::Page page;
+        page.numberOfRows = 10;
+        page.firstLine = 8;
+        page.values.insert(page.values.end(), 20,  { {"four", " five", " six"} });
+
+        // Act
+        const auto result = Interactor::FirstPage(page);
+
+        // Assert
+        EXPECT_EQ (result.firstLine, 0);
+    }
 }

@@ -39,4 +39,13 @@ namespace csv
 
         return result;
     }
+
+    contracts::Page Interactor::FirstPage(contracts::Page& page)
+    {
+        contracts::Page result = page;
+
+        result.firstLine = 0;
+
+        return result;
+    }
 }
