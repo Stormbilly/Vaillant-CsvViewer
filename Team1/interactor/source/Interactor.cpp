@@ -13,4 +13,18 @@ namespace csv
         const auto values = parseCSV (file);
         return domain::pageGenerator (values, parsedArgs.noOfRows);
     }
+
+    contracts::Page Interactor::PrevPage(contracts::Page currentPage)
+    {
+        if(((long long int)currentPage.firstLine - (long long int)currentPage.numberOfRows) < 0)
+        {
+            currentPage.firstLine = 0;
+        }
+        else
+        {
+            currentPage.firstLine -= currentPage.numberOfRows;
+        }
+
+        return currentPage;
+    }
 }

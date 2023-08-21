@@ -8,6 +8,7 @@ namespace csv
     {
     public:
         static contracts::Page Start(const char** argv, unsigned int argc);
+        static contracts::Page PrevPage(contracts::Page currentPage);
     };
 
 }
