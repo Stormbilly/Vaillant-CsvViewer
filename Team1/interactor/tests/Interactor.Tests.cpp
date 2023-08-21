@@ -116,4 +116,44 @@ namespace csv
         // Assert
         EXPECT_EQ (result.firstLine, 0);
     }
+
+    TEST(InteractorTests, LastPage)
+    {
+        contracts::Page page;
+        page.numberOfRows = 2;
+        std::vector <std::vector <std::string> > values = {{"four", " five", " six"},{"four", " five", " six"},{"four", " five", " six"}};
+        page.values = values;
+
+        const auto lastPage = Interactor::Lastpage(page);
+
+        EXPECT_EQ (lastPage.firstLine, 1);
+    }
+
+ 
+
+    TEST(InteractorTests, LastPage_SameNoOfRows)
+    {
+        contracts::Page page;
+        page.numberOfRows = 3;
+        std::vector <std::vector <std::string> > values = {{"four", " five", " six"},{"four", " five", " six"},{"four", " five", " six"}};
+        page.values = values;
+
+        const auto lastPage = Interactor::Lastpage(page);
+
+        EXPECT_EQ (lastPage.firstLine, 0);
+    }
+
+ 
+
+    TEST(InteractorTests, LastPage_NoOfRowsHigher)
+    {
+        contracts::Page page;
+        page.numberOfRows = 4;
+        std::vector <std::vector <std::string> > values = {{"four", " five", " six"},{"four", " five", " six"},{"four", " five", " six"}};
+        page.values = values;
+
+        const auto lastPage = Interactor::Lastpage(page);
+
+        EXPECT_EQ (lastPage.firstLine, 0);
+    }
 }

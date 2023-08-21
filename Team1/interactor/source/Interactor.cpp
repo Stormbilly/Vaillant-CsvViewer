@@ -48,4 +48,10 @@ namespace csv
 
         return result;
     }
+
+    contracts::Page Interactor::Lastpage(contracts::Page& page) 
+    {
+        page.firstLine = std::max((long long)(page.values.size() - page.numberOfRows), (long long)0);
+        return page;
+    }
 }
