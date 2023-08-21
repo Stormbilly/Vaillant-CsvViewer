@@ -9,8 +9,8 @@ int main(int argc, const char** argv)
     std::string user_input;
     bool errorFlag = false;
     auto page = Interactor::Start(argv, argc);
-
     UI ui;
+
     while(true)
     {
         ui.ShowPage(page);
@@ -24,7 +24,7 @@ int main(int argc, const char** argv)
         std::cin >> user_input;
 
         if(user_input == "F")
-            page = Interactor::NextPage(page);
+            page = Interactor::FirstPage(page);
         else if(user_input == "P")
             page = Interactor::PrevPage(page);
         else if(user_input == "N")
