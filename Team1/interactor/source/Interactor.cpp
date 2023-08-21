@@ -4,6 +4,8 @@
 #include "CSVLoader.h"
 #include "Domain.h"
 
+#include <algorithm>
+
 namespace csv
 {
     contracts::Page Interactor::Start(const char** argv, unsigned int argc)
@@ -14,7 +16,7 @@ namespace csv
         return domain::pageGenerator (values, parsedArgs.noOfRows);
     }
 
-    contracts::Page Interactor::PrevPage(contracts::Page currentPage)
+    contracts::Page Interactor::PrevPage(contracts::Page& currentPage)
     {
         if(((long long int)currentPage.firstLine - (long long int)currentPage.numberOfRows) < 0)
         {
@@ -26,5 +28,15 @@ namespace csv
         }
 
         return currentPage;
+    }
+
+    contracts::Page Interactor::NextPage(contracts::Page& page)
+    {
+        contracts::Page result = page;
+
+        const auto lastPage = std::max ((long long) page.values.size() - (long long) page.numberOfRows, (long long) 0);
+        result.firstLine = std::min (page.firstLine + page.numberOfRows, (unsigned int) lastPage);
+
+        return result;
     }
 }
