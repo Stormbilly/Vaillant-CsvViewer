@@ -2,7 +2,7 @@
 
 #include "FileLoader.h"
 
-std::string loadFile (std::string path)
+std::string loadFile (const std::string path)
 {
     std::ifstream ifs(path.c_str(), std::ios::in | std::ios::binary | std::ios::ate);
 

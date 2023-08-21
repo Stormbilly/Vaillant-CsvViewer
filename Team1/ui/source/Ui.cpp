@@ -17,14 +17,12 @@ namespace csv
         unsigned int limit = std::min ((unsigned int)(page.firstLine + page.numberOfRows), (unsigned int)page.values.size());
         
         for (int i = page.firstLine; i < limit ; i++) {
-//        for (auto itVec = page.values[page.firstLine]; itVec != page.values[page.firstLine + page.numberOfRows]; itVec++) { 
-                std::cout << BuildOutputLine(page.values[i]).data();
+            std::cout << BuildOutputLine(page.values[i]).data();
         }
         std::cout << "--------------------------------------\n";
         std::cout << "F)irst page, P)revious page, N)ext page, Last page, E)xit\n";
-
     } 
-
+ 
     std::string BuildOutputLine(const std::vector<std::string>& strings) {
         
         std::string output;
