@@ -28,8 +28,8 @@ int main(int argc, const char** argv)
             page = Interactor::PrevPage(page);
         else if(user_input == "N")
             page = Interactor::NextPage(page);
-        //else if(user_input == "L")
-        //    page = Interactor::LastPage(page);
+        else if(user_input == "L")
+            page = Interactor::Lastpage(page);
         else if(user_input == "E")
             exit(0);
         else
