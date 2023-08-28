@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Page.h"
+#include "AllowedOperations.h"
 
 namespace csv
 {
@@ -12,6 +13,6 @@ namespace csv
 	    
 		std::string BuildOutputLine(const std::vector<std::string>& strings, std::vector<uint16_t> length);
 
-		void ShowPage(const contracts::Page& page);
+		contracts::AllowedOperations ShowPage(const contracts::Page& page);
 	};
 } // namespace csv

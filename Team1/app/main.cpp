@@ -1,5 +1,4 @@
-﻿#include <iostream>
-#include "Interactor.h"
+﻿#include "Interactor.h"
 #include "Ui.h"
 
 using namespace csv;
@@ -7,34 +6,30 @@ using namespace csv;
 int main(int argc, const char** argv)
 {
     std::string user_input;
-    bool errorFlag = false;
     auto page = Interactor::Start(argv, argc);
     UI ui;
-
+    
     while(true)
     {
-        ui.ShowPage(page);
+        const auto op = ui.ShowPage(page);
 
-        if(errorFlag)
+        switch (op)
         {
-            std::cout << "Invalid command" << std::endl;
-            errorFlag = false;
+            case contracts::AllowedOperations::NextPage:
+                page = Interactor::NextPage(page);
+                break;
+            case contracts::AllowedOperations::LastPage:
+                page = Interactor::Lastpage(page);
+                break;
+            case contracts::AllowedOperations::PrevPage:
+                page = Interactor::PrevPage(page);
+                break;
+            case contracts::AllowedOperations::FirstPage:
+                page = Interactor::FirstPage(page);
+                break;
+            case contracts::AllowedOperations::Exit:
+                exit(0);
         }
-
-        std::cin >> user_input;
-
-        if(user_input == "F")
-            page = Interactor::FirstPage(page);
-        else if(user_input == "P")
-            page = Interactor::PrevPage(page);
-        else if(user_input == "N")
-            page = Interactor::NextPage(page);
-        else if(user_input == "L")
-            page = Interactor::Lastpage(page);
-        else if(user_input == "E")
-            exit(0);
-        else
-            errorFlag = true;
     }
 
 	return 0;
