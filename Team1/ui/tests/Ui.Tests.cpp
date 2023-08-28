@@ -16,11 +16,11 @@ namespace csv
 
 	using namespace testing;
 	
-	TEST(Ui, ComputeCellLenght)
+	TEST(Ui, ComputeLengthOfCells)
 	{
 		UI ui;
 		contracts::Page page = CreatePage();
-		std::vector<uint16_t> length = ui.ComputeLength(page);
+		std::vector<uint16_t> length = ui.ComputeLengthOfCells(page);
 		EXPECT_EQ (length.size(), 3);
 		EXPECT_EQ (length[0], 14);
 		EXPECT_EQ (length[1], 2);
@@ -31,7 +31,7 @@ namespace csv
 	{
 		UI ui;
 		contracts::Page page = CreatePage();
-		std::vector<uint16_t> length = ui.ComputeLength(page);
+		std::vector<uint16_t> length = ui.ComputeLengthOfCells(page);
 		std::string line = ui.BuildOutputLine(page.header, length);
 		EXPECT_EQ (line , "Header 1      |H2|head4");
 		line = ui.BuildOutputLine(page.values[0], length);

@@ -6,20 +6,32 @@
 namespace csv
 {
 	
-    std::vector<uint16_t> UI::ComputeLength(const contracts::Page& page) {
-        std::vector<uint16_t> length;
-        for(auto elem:  page.header) {
-            length.push_back(elem.length());
+    uint16_t UI::NumberofElementsInLengthVector(const contracts::Page& page) {
+        uint16_t numberOfElemets = page.header.size();
+        for(auto elem:  page.values) {
+            numberOfElemets = std::max(numberOfElemets, (uint16_t)elem.size());
         } 
-        // for(auto lineElements: page.values) {
-        //     if (lineElements.)
-        // }
+        return numberOfElemets;
+    }
+
+    std::vector<uint16_t> UI::ComputeLengthOfCells(const contracts::Page& page) {
+        std::vector<uint16_t> length(NumberofElementsInLengthVector(page), uint16_t);
+        uint16_t i = 0L;
+        for(auto elem:  page.header) {
+            length[i] = std::max(length[i], elem.length());;
+        } 
+        for(auto lineElements: page.values) {
+            i = 0L;
+            for(auto elem:  lineElements) {
+                length[i] = std::max(length[i], elem.length());;
+            } 
+        }
         return length;
     }
 
     void UI::ShowPage(const contracts::Page& page) {
         ::system("clear");
-        std::vector<uint16_t> length = ComputeLength(page);
+        std::vector<uint16_t> length = ComputeLengthOfCells(page);
 
         std::cout  << BuildOutputLine(page.header, length).data();
         std::cout << "--------------------------------------\n";
