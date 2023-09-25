@@ -26,8 +26,7 @@ namespace csv
         csv_file.open(file_path);
         if (csv_file.is_open())
         {
-            for (std::string line; std::getline(csv_file, line, '\r'); ){
-                line.erase(std::remove_if(line.begin(), line.end(), &IsEndline), line.end());
+            for (std::string line; std::getline(csv_file, line, '\n'); ){
                 csv_lines.push_back(line);
             }              
         }
