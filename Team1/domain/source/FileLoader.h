@@ -1,4 +1,6 @@
 #include <string>
 #include <vector>
 
-std::string loadFile (std::string path);
+#include "ErrorClass.h"
+
+std::string loadFile (const std::string path, csv::contracts::GlobalErrors& outErr);
