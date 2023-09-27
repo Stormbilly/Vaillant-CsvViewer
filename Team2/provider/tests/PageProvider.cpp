@@ -77,4 +77,44 @@ namespace csv
         EXPECT_EQ(csv_data.Header, result_page.Header);
         EXPECT_EQ(expected_page.Rows[0], result_page.Rows[0]);
         }
+
+        TEST(PageProviderTests, ReturnPage_LastPageOnly2ElementsLeft)
+        {
+        contracts::Page csv_data{{"Name", "Street", "PLZ"},
+                                        {{"A", "S1", "1"},
+                                        {"B", "S2", "2"},
+                                        {"C", "S3", "3"},
+                                        {"D", "S4", "4"},
+                                        {"E", "S5", "5"},
+                                        {"F", "S6", "6"},
+                                        {"G", "S7", "7"},
+                                        {"H", "S8", "8"},
+                                        {"I", "S8", "9"},
+                                        {"J", "S8", "10"}}};  
+        PageProvider page_provider;
+        contracts::Page result_page;
+        result_page = page_provider.ProvidePage(csv_data, 3, 4);
+
+        EXPECT_EQ(result_page.Rows.size(), 2);
+        }
+
+        TEST(PageProviderTests, ReturnPage_NoElementsToShow)
+        {
+        contracts::Page csv_data{{"Name", "Street", "PLZ"},
+                                        {{"A", "S1", "1"},
+                                        {"B", "S2", "2"},
+                                        {"C", "S3", "3"},
+                                        {"D", "S4", "4"},
+                                        {"E", "S5", "5"},
+                                        {"F", "S6", "6"},
+                                        {"G", "S7", "7"},
+                                        {"H", "S8", "8"},
+                                        {"I", "S8", "9"},
+                                        {"J", "S8", "10"}}};  
+        PageProvider page_provider;
+        contracts::Page result_page;
+        result_page = page_provider.ProvidePage(csv_data, 6, 4);
+
+        EXPECT_EQ(result_page.Rows.size(), 0);
+        }
 }
