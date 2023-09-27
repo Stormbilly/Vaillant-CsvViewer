@@ -26,6 +26,8 @@ namespace csv
             }
             std::cout << std::endl;
         }
+
+        std::cout << "F)irst page, P)revious page, N)ext page, L)ast page, E)xit" << std::endl;
     }
 
 } // namespace csv
