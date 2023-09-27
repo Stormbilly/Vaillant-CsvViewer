@@ -15,11 +15,8 @@ namespace csv
 		char **argv = nullptr;
         int argc = 0;
 
-        auto [filename, page_size] = parser.ParseCommandline(argv, argc);
-        
-        EXPECT_TRUE(filename.empty());
-        EXPECT_EQ(page_size, 0);
-	} 
+        EXPECT_THROW(parser.ParseCommandline(argv, argc), std::out_of_range);
+    } 
 
     TEST(CommandlineParserTests, ParseCommandline_Filename_Only)
 	{
@@ -69,11 +66,38 @@ namespace csv
 		char *argv[] = {"Programm", "Test", "AB"};
         int argc = 3;
 
-        auto [filename, page_size] = parser.ParseCommandline(argv, argc);
-        
-        EXPECT_FALSE(filename.empty());
-        EXPECT_EQ(page_size, 3);
+        EXPECT_THROW(parser.ParseCommandline(argv, argc), std::invalid_argument);
  	}
 
+    TEST(CommandlineParserTests, ParseCommandline_PageSize_TooSmall)
+	{
+        CommandlineParser parser;
+
+		char *argv[] = {"Programm", "Test", "0"};
+        int argc = 3;
+
+        EXPECT_THROW(parser.ParseCommandline(argv, argc), std::out_of_range);
+ 	}
+
+    TEST(CommandlineParserTests, ParseCommandline_PageSize_Negative)
+	{
+        CommandlineParser parser;
+
+		char *argv[] = {"Programm", "Test", "-1"};
+        int argc = 3;
+
+        EXPECT_THROW(parser.ParseCommandline(argv, argc), std::out_of_range);
+ 	}
+
+
+    TEST(CommandlineParserTests, ParseCommandline_Exception)
+	{
+        CommandlineParser parser;
+
+		char *argv[] = {"Programm"};
+        int argc = 1;
+       
+        EXPECT_THROW(parser.ParseCommandline(argv, argc), std::out_of_range);
+ 	}
 
 }
