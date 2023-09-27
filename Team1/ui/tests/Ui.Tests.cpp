@@ -32,6 +32,7 @@ namespace csv
 		UI ui;
 		contracts::Page page = CreatePage();
 		std::vector<uint16_t> length = ui.ComputeLengthOfCells(page);
+
 		std::string line = ui.BuildOutputLine(page.header, length);
 		EXPECT_EQ (line , "      Header 1|H2|head4|\n");
 		line = ui.BuildOutputLine(page.values[0], length);
