@@ -3,7 +3,7 @@ project("provider.Tests" CXX)
 
 enable_testing()
 
-add_executable(${PROJECT_NAME} CSVFileProvider.Tests.cpp)
+add_executable(${PROJECT_NAME} CSVFileProvider.Tests.cpp PageProvider.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE gmock_main provider)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
